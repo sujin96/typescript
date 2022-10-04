@@ -197,3 +197,38 @@ const nic: User2 = {
   lastName: "dddd",
   health: 2,
 };
+/*
+추상 클래스의 문제점은 자바스크립트에는 abstract의 개념이 없다.
+추상클래스는 클래스 구현 전에 청사진을 그리기 위해 사용된다.
+자바스크립트로 변환시 일반적인 클래스로 구현이 되기때문에 불필요한 코드가 생기게 된다.
+인터페이스를 사용하면 똑같이 청사진을 그릴 수 있지만 자바스크립트로 변환시 사라진다. == 가볍다
+인터페이스를 상속할때에는 public property만 사용할 수 있다.
+원한다면 여러개의 인터페이스를 상속할 수 있다.
+인터페이스도 타입으로 사용이 가능하다.
+*/
+interface User3 {
+  firstName: string;
+  lastName: string;
+  sayHi(name: string): string;
+  fullName(): string;
+}
+
+interface Human {
+  health: number;
+}
+
+class Player4 implements User3, Human {
+  constructor(
+    public firstName: string,
+    public lastName: string,
+    public health: number
+  ) {}
+
+  fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  sayHi(name: string) {
+    return `Hello ${name}. My name is ${this.fullName()}`;
+  }
+}

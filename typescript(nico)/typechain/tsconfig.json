@@ -1,7 +1,11 @@
 {
-  "include": ["src"],
+  "include": ["src", "src/..myPackage.d.ts", "src/...myPackage.js"],
   "compilerOptions": {
     "outDir": "build",
-    "target": "ES6"
+    "target": "ES6",
+    "lib": ["ES6"],
+    "strict": true,
+    "esModuleInterop": true,
+    "module": "CommonJS"
   }
 }
